@@ -1,0 +1,31 @@
+<h1 class="mb-4">Hey, {{username}}!</h1>
+
+<form class="form-inline mb-4 float-right" action="/userProfile" method="POST">
+  <div class="form-group">
+    <input type="text" name="symbol" placeholder="Add symbol..." class="form-control mr-4">
+  </div>
+  <button type="submit" class="btn btn-success">ADD A VALUE</button>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each values as |item|}}
+    <tr>
+      <td>{{item}}</td>
+      <td>
+         <form action="/delete/{{item}}" method="POST">
+          <button class="btn btn-danger" type="submit">DELETE</button>
+          </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<a class="btn btn-secondary" href="/charts" role="button">My Charts</a>

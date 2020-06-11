@@ -1,0 +1,15 @@
+<h4 class="mb-4 text-center">MY CHARTS 📊</h4>
+
+<div class="row">
+    {{#each values as |item|}}
+    <div class="col-md-6">
+        <script>document.addEventListener(
+                'DOMContentLoaded', printChart('{{item}}'),
+                false
+            );</script>
+        <canvas id="{{item}}"></canvas>
+    </div>
+    {{/each}}
+    
+</div>
+<a class="btn btn-secondary" href="/userProfile" role="button">My data</a>
